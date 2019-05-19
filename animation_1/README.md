@@ -1,6 +1,6 @@
 # animation_1
 
-A new Flutter project.
+Cookbook project folder on animation section
 
 ## Getting Started
 
