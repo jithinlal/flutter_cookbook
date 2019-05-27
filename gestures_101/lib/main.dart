@@ -57,7 +57,7 @@ class _CustomDismissListState extends State<CustomDismissList> {
         ),
         body: ListView.builder(
           itemCount: items.length,
-          itemBuilder: (context, index) {
+          itemBuilder: (context2, index) {
             final item = items[index];
             return Dismissible(
               key: Key(item),
@@ -65,7 +65,7 @@ class _CustomDismissListState extends State<CustomDismissList> {
                 setState(() {
                   items.removeAt(index);
                 });
-                Scaffold.of(context).showSnackBar(
+                Scaffold.of(context2).showSnackBar(
                   SnackBar(
                     content: Text('$item dimissed'),
                   ),
