@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 
 // 1. HeroNavigation => HeroNavigationMain and HeroNavigationDetail
 // 2. NavigationRoute => FirstRoute and SecondRoute
-void main() => runApp(NavigationRoute());
+// 3. NavigationScreen => FirstScreen and SecondScreen
+void main() => runApp(NavigationScreen());
 
 class HeroNavigation extends StatelessWidget {
   @override
@@ -103,6 +104,57 @@ class SecondRoute extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Second Route'),
+      ),
+      body: Center(
+        child: RaisedButton(
+          child: Text('Back'),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class NavigationScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      initialRoute: '/',
+      routes: {
+        '/': (context) => FirstScreen(),
+        '/second': (context) => SecondScreen(),
+      },
+    );
+  }
+}
+
+class FirstScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('First Screen'),
+      ),
+      body: Center(
+        child: RaisedButton(
+          child: Text('Go'),
+          onPressed: () {
+            Navigator.pushNamed(context, '/second');
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class SecondScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Second Screen'),
       ),
       body: Center(
         child: RaisedButton(
